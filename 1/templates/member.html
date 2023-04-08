@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}實踐大學高雄校區宿舍維修系統{% endblock %}
+{% block page_content %}
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous">
+    
+</script>
+<style>
+    main{
+        flex-direction: column;
+        flex-wrap: wrap; /*縮小時換行*/
+        justify-content:center;
+        align-items: flex-start;
+        /* background-color: #cccccc; */
+    }
+    .page-header{
+        box-sizing: border-box;
+        margin:0px 0 0 0px;
+        width: 100%;
+        height: 244px;
+        display: flex;
+        /* 水平置中 */
+        justify-content:center;
+        /* background-color: blue; */
+    }
+    .page-header>.top-container{
+        margin:0px 0 0 0px;
+        border-bottom: 0;
+        width: 75%; 
+        height: 244px;
+        /* background-color: antiquewhite; */
+        border: 1px solid black;
+    }
+    .title{
+        height: 30%;
+        font-size: 20px;
+        font-weight: bold;
+        
+    }
+    .prolist{
+        /* background-color: black; */
+        height: 70%;
+        border: 0;
+        margin: 0;
+    }
+    .prolist>.prev{
+        width: 30px;
+        float: left;
+        height: 100%;
+        border-radius: 5px;
+        background-color: #F0F0F0;
+        border-color: #F0F0F0;
+    }
+    .prolist>.next{
+        width: 30px;
+        float: right;
+        height: 100%;
+        border-radius: 5px;
+        background-color: 	#F0F0F0;
+        border-color: 	#F0F0F0;
+    }
+    .container{
+        box-sizing:border-box;
+        width: 75%; height: 60%;
+        border: 1px solid black;
+    }
+    .icleft{
+        padding-top: 80px;
+        /* background-color: antiquewhite; */
+    }
+    .icright{
+        padding-top: 80px;
+        /* background-color: antiquewhite; */
+    }
+    svg{
+        width: 20px;
+    }
+    /* form{
+        width: 45%;
+        justify-content: space-between;
+    } */
+</style>
+<main>
+    <div class="page-header">
+        <div class="top-container">
+            <div class="title">維修進度</div>
+            <div class="prolist">
+                <div class="prev">
+                    <div class="icleft">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div  class="next">
+                    <div class="icright">    
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>    
+                </div>
+            </div>
+            </div>
+    </div>
+
+
+    <div class="container">
+        <form method="POST"> <!-- form 表單 -->
+        {{form.hidden_tag()}}
+        {{form.dorm.label(class='form-label')}} 
+        {{form.dorm(style="display: flex; list-style:none; ")}}  <!-- justify-content: space-between; flex-wrap:wrap;  -->
+        <br>
+        {{form.place.label(class='form-label')}} 
+        {{form.place(style="display: flex; list-style:none; ")}} 
+        <br>
+        {{form.fixsubject_1.label(class='form-label')}} 
+        {{form.fixsubject_1(style="display: flex; list-style:none; ")}}
+        <br>
+        {{form.fixsubject_2.label(class='form-label')}} 
+        {{form.fixsubject_2(class='form-control')}}
+        <br>
+        {{form.explain.label(class='form-label')}} 
+        {{form.explain(class='form-control')}}
+        <br>
+        {{form.submit(class='btn btn-primary')}}
+        </form>
+    </div>
+
+<p>{# {{ moment(current_time).format('LLL')}} #}.</p>
+<p>{# {{moment(current_time).fromNow(refresh = True)}} #}</p>
+</main>
+{% endblock %}
+

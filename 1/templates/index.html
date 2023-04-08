@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入系統</title>
+    <style>
+        main{
+            display: inline-block;
+        }
+        .title{
+            border-collapse: collapse;
+            position: absolute;
+            font-size: 60px; 
+            width: 50%; 
+            height: 100%; 
+            background-color:#5B5B5B; 
+            color: white; 
+            font-weight: bold;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            float: left; 
+        }
+        article{
+            flex-wrap: wrap;
+            margin-top: 35%;
+            margin-left: 10%;
+            margin-right: 8%;
+        }
+        form{
+            right: 0; 
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            height: 400px;
+            position: absolute;
+            /* background-color: aqua; */
+            margin-top: 10%;
+            text-align: center;
+        }
+        form>h1{
+            margin-bottom: 5%;
+        }
+        form>span{
+            font-size: 16px;
+        }
+        form>span>input{ 
+            margin: 10px;
+            font-size: 15px;
+            border-radius: 3px;
+            width: 220px;
+            height: 30px;
+            
+        }
+        form>div>button{
+            margin-top: 30px;
+            color: white;
+            font-size: 16px;
+            border-radius: 20px;
+            border-color: #5B00AE;
+            padding: 4px 12px;
+            background-color: #5B00AE;
+        }
+        form>p{
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="title">
+            <article>
+                實踐大學高雄校區宿舍維修系統
+            </article>
+        </div>
+    <!-- <h2 style="text-align: center;">宿舍維修登入</h2>
+    <div style="text-align: center;">歡迎使用宿舍維修系統</div> -->
+    
+        <form action="/signin" method="post">
+            <h1>登入</h1>
+            <span>學號 <input type="text" name="account"/></span><br/>
+            <span>密碼 <input type="password" name="password"/></span><br/>
+            <div><button>&plus; 登入</button></div><br/>
+            <p><a href="/signuppage">註冊</a></p>
+            <p>管理者登入</p>
+        </form>
+        
+    
+    </main>
+
+</body>
+</html>

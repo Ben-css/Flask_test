@@ -1,0 +1,6 @@
+1.生成 requirments.txt
+pip freeze >requirments.txt
+
+2.請先去下載requiremrnt.txt 內的套件
+pip install -r requirments.txt
+
