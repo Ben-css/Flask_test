@@ -1,20 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>維修系統註冊</title>
+    <title>維修系統帳號註冊</title>
+    <link rel="stylesheet" href="signup.css" />
 </head>
 <body>
-    <h2>宿舍維修註冊系統</h2>
-    <form action="/signup" method="post">
-        學號 <input type="text" name="account"/><br/>
-        密碼 <input type="password" name="password"/><br/>
-        email <input type="email" name="email"/><br/>
-        姓名 <input type="text" name="name"/><br/>
-        房號床位 <input type="text" name="number"/><br/>
-        <button>註冊</button>
-    </form>
+    <main>
+        <div class="title">
+            <article>
+                實踐大學高雄校區宿舍維修系統
+            </article>
+        </div>
+    <!-- <h2 style="text-align: center;">宿舍維修登入</h2>
+    <div style="text-align: center;">歡迎使用宿舍維修系統</div> -->
+      
+        <form action="/signup" method="post">
+            <h1>宿舍維修註冊系統</h1>
+            <span>學號 <input type="text" name="studentid" required="required"/></span><br/>
+            <span>密碼 <input type="password" name="password" required="required"/></span><br/>
+            <span class="email">email <input type="email" name="email" required="required"/></span><br/>
+            <span>姓名 <input type="text" name="name" required="required"/></span><br/>
+            <span class="number">房號床位 <input type="text" name="number" required="required" placeholder="例: N-104"/></span><br/>
+            <div><button>&plus; 註冊</button></div>
+            <p><a href="/">回登入頁面</a></p>
+        </form>
+        
+        
+    
+    </main>
+
 </body>
 </html>

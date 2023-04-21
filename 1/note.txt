@@ -1,6 +1,58 @@
+默認情況下，Flask-WTF可以保護所有表單免受跨站請求偽造（Cross-Site Request Forgery, CSRF）的攻擊。為了實現這個防護，Flask-WTf需要在程序中設置一個密鑰，然後再使用這個密鑰生成加密令牌，再用令牌驗證請求中表單數據的真偽。設置密鑰的方法如下：hello.py
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your secret key'
+*** 在javascript內用jinja2記得用 '{{}}'!!! ***
+
 1.生成 requirments.txt
 pip freeze >requirments.txt
 
 2.請先去下載requiremrnt.txt 內的套件
 pip install -r requirments.txt
 
+3.css  display: flex;  橫向排列 
+
+4.登入管理模組 =>  flask_login
+。 login_manager.init_app(app)  =>  初始化 flask_login 模組
+。 login_manager.login_view = 'login'
+                大概是: 未登入 或 訪客 狀態，進入需要登入才能 使用的頁面。
+                        阻擋 非登入用戶，將其轉到登入頁面，做登入步驟
+        
+。 login_manager.session_protection = 'strong'
+        保護 cookie 用的參數，有 'basic' 與 'strong' 兩個等級
+            或是關閉該功能 'None' ，預設值為 'basic'
+
+5. bootstrap: class="nav navbar-nav"   nav裡的上列
+              class="navbar-collapse collapse"   隱藏元素
+              class="nav navbar-nav"   下拉式
+6.Flask-Moment 可讓moment.js 合併至Jinja2模板中 
+
+7. import datatime
+from datatime import date
+year	取得西元年
+month	取得月份
+day	取得日期
+replace()	取代日期，產生新的物件
+weekday()	回傳一星期中的第幾天，星期一為 0
+isoweekday()	回傳一星期中的第幾天，星期一為 1
+isocalendar()	回傳一個 tuple，內容分別是 ( 年、第幾週、isoweekday )
+isoformat()	回傳 ISO 格式的日期字串
+ctime()	回傳日期和時間的字串
+strftime()	回傳特定格式字串所表示的時間 ( 詳細可參考 strftime() 和 strptime() )
+
+8..querySelector() 的方式，他就不僅僅只局限於 id 元素
+id: document.querySelector('#title');
+class:  document.querySelector('.title');
+
+9. scrollBy(x,y) scroll移動
+
+10. javascript dom 
+innerHTML方法：
+組完字串後，傳進 HTML 裡進行渲染
+優點：效能高
+缺點：有資安風險，要確保傳進 HTML 的程式碼來源沒問題
+
+createElement
+方法：以建立一個新的 DOM 節點來處理
+優點：安全性高
+缺點：效能差

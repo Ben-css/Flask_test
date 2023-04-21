@@ -4,32 +4,30 @@
 <link rel="icon" href="{{ url_for('static', filename='favicon.png')}}" type="image/x-icon">
 {% endblock %}
 
-{% block scripts %}
-{{ super() }}
-{{ moment.include_moment() }}
-{% endblock %}
-
-
 {% block title %}{% endblock %}
 
 {% block navbar %}
-<style>
-    .navbar{
-        width: 100%;
-        border-collapse: collapse;
-        background-color: black;
-        color: white;
-    }
-</style>
-<div class="navbar">
-    <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <div class="navbar-brand">實踐大學高雄校區宿舍維修系統</div>
+
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand" style="flex: auto;">實踐大學高雄校區宿舍維修系統</div>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+            <span class="navbar-text">
+                Hi! {{ session['name'] }}
+              </span>
+              <ul class="nav navbar-nav">
+                <li><a href="/signout">登出</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 <!-- <div class="navbar navbar-inverse" role="navigation">

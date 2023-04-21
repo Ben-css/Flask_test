@@ -3,133 +3,377 @@
 
 {% block title %}實踐大學高雄校區宿舍維修系統{% endblock %}
 {% block page_content %}
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous">
-    
-</script>
-<style>
-    main{
-        flex-direction: column;
-        flex-wrap: wrap; /*縮小時換行*/
-        justify-content:center;
-        align-items: flex-start;
-        /* background-color: #cccccc; */
-    }
-    .page-header{
-        box-sizing: border-box;
-        margin:0px 0 0 0px;
-        width: 100%;
-        height: 244px;
-        display: flex;
-        /* 水平置中 */
-        justify-content:center;
-        /* background-color: blue; */
-    }
-    .page-header>.top-container{
-        margin:0px 0 0 0px;
-        border-bottom: 0;
-        width: 75%; 
-        height: 244px;
-        /* background-color: antiquewhite; */
-        border: 1px solid black;
-    }
-    .title{
-        height: 30%;
-        font-size: 20px;
-        font-weight: bold;
-        
-    }
-    .prolist{
-        /* background-color: black; */
-        height: 70%;
-        border: 0;
-        margin: 0;
-    }
-    .prolist>.prev{
-        width: 30px;
-        float: left;
-        height: 100%;
-        border-radius: 5px;
-        background-color: #F0F0F0;
-        border-color: #F0F0F0;
-    }
-    .prolist>.next{
-        width: 30px;
-        float: right;
-        height: 100%;
-        border-radius: 5px;
-        background-color: 	#F0F0F0;
-        border-color: 	#F0F0F0;
-    }
-    .container{
-        box-sizing:border-box;
-        width: 75%; height: 60%;
-        border: 1px solid black;
-    }
-    .icleft{
-        padding-top: 80px;
-        /* background-color: antiquewhite; */
-    }
-    .icright{
-        padding-top: 80px;
-        /* background-color: antiquewhite; */
-    }
-    svg{
-        width: 20px;
-    }
-    /* form{
-        width: 45%;
-        justify-content: space-between;
-    } */
-</style>
-<main>
-    <div class="page-header">
-        <div class="top-container">
-            <div class="title">維修進度</div>
-            <div class="prolist">
-                <div class="prev">
-                    <div class="icleft">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                        </svg>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        main {
+            flex-direction: column;
+            flex-wrap: wrap;
+            /*縮小時換行*/
+            justify-content: center;
+
+            /* background-color: #cccccc; */
+        }
+
+        .page-header {
+            box-sizing: border-box;
+            margin: 0px 0 0 0px;
+            width: 100%;
+            height: 230px;
+            display: flex;
+            /* 水平置中 */
+            justify-content: center;
+            /* background-color: blue; */
+        }
+
+        .page-header>.top-container {
+            margin: 0px 0 0 0px;
+            border-bottom: 0;
+            width: 75%;
+            height: 230px;
+            /* background-color: antiquewhite; */
+            border: 1px solid black;
+        }
+
+        .title {
+            padding-top: 5px;
+            margin-left: 10px;
+            height: 30%;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .prolist {
+            display: flex;
+            /* background-color: black; */
+            height: 70%;
+            border: 0;
+            margin: 0;
+        }
+
+        .prolist>.prev {
+            width: 45px;
+            float: left;
+            height: 100%;
+            border-radius: 5px;
+            /* background-color: #F0F0F0; */
+            /* border-color: #F0F0F0; */
+        }
+
+        .prolist>.next {
+            width: 45px;
+            float: right;
+            height: 100%;
+            border-radius: 5px;
+            /* background-color: 	#F0F0F0; */
+            /* border-color: 	#F0F0F0; */
+        }
+
+        .container {
+            box-sizing: border-box;
+            width: 75%;
+            height: 60%;
+            border: 1px solid black;
+        }
+
+        .icleft {
+            margin-left: 3px;
+            padding-top: 65px;
+            /* background-color: antiquewhite; */
+        }
+
+        .icright {
+            margin-left: 11px;
+            padding-top: 65px;
+            /* background-color: antiquewhite; */
+        }
+
+        .procontent {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            /* 重點 */
+            /* background-color: blueviolet; */
+        }
+
+        .probox {
+            padding: 20px;
+            font-size: 15px;
+            font-weight: bold;
+            flex: none;
+            /*重點!!*/
+            margin-left: 30px;
+            margin-top: 10px;
+            border-radius: 8px;
+            background-color: #BEBEBE;
+            width: 300px;
+            height: 140px;
+        }
+
+        svg {
+            width: 20px;
+        }
+
+        .fixform {
+            padding-top: 5px;
+            height: 30%;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .user {
+            margin: 5px;
+            flex-wrap: nowrap;
+            padding-top: 8px;
+            padding-left: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #BEBEBE;
+            border-radius: 5px;
+            width: 400px;
+            height: 40px;
+        }
+        .dialog{
+            position: fixed;
+            /* top: 150px; */
+            /* left: 47%; */
+            padding: 30px;
+            /* transform: translate(-100px,0);  */
+            width: 300px;
+            height: 480px;
+            border-radius: 15px; 
+            border: 0;
+            background-color: 	#F0F0F0; 
+            /* box-shadow: 0px 0px 10px #000; */
+            display: none;
+        }
+        .dialog>.dialog-content{
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .dialog>.close{
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* form{
+                width: 45%;
+                justify-content: space-between;
+            } */
+    </style>
+</head>
+
+<body>
+    <main onload="init();">
+        <div class="page-header">
+            <div class="top-container">
+                <div class="title">維修進度</div>
+                <div class="prolist">
+                    <div onclick="prev()" class="prev">
+                        <div class="icleft">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="procontent" id="procontent">
+
+                    </div>
+
+                    <dialog id="dialog" class="dialog">
+                        <p id="dialog-content" class="dialog-content"></p>
+                        <button id="close" class="close">&times;</button>
+                    </dialog>
+
+                    <div onclick="next()" class="next">
+                        <div class="icright">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="fixform">維修表單</div>
+
+            <form action="/forms" method="post"> <!-- form 表單 -->
+                <div class="user">你正在以 {{ studentid }} {{ name }} 的身分提交表單</div>
                 
-                <div  class="next">
-                    <div class="icright">    
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                    </div>    
-                </div>
-            </div>
-            </div>
-    </div>
+                {{form.hidden_tag()}}
+                {{form.dorm.label(class='form-label')}}
+                {{form.dorm(style="display: flex; list-style:none; ")}}
+                <!-- justify-content: space-between; flex-wrap:wrap;  -->
+                <br>
+                {{form.place.label(class='form-label')}}
+                {{form.place(style="display: flex; list-style:none; ")}}
+                <br>
+                {{form.fixsubject_1.label(class='form-label')}}
+                {{form.fixsubject_1(style="display: flex; list-style:none; ")}}
+                <br>
+                {{form.fixsubject_2.label(class='form-label')}}
+                {{form.fixsubject_2(class='form-control')}}
+                <br>
+                {{form.explain.label(class='form-label')}}
+                {{form.explain(class='form-control')}}
+                <br>
+                {{form.submit(class='btn btn-primary', id="btn", onclick="submit()")}}
+            </form>
+        </div>
+    </main>
+</body>
 
+</html>
 
-    <div class="container">
-        <form method="POST"> <!-- form 表單 -->
-        {{form.hidden_tag()}}
-        {{form.dorm.label(class='form-label')}} 
-        {{form.dorm(style="display: flex; list-style:none; ")}}  <!-- justify-content: space-between; flex-wrap:wrap;  -->
-        <br>
-        {{form.place.label(class='form-label')}} 
-        {{form.place(style="display: flex; list-style:none; ")}} 
-        <br>
-        {{form.fixsubject_1.label(class='form-label')}} 
-        {{form.fixsubject_1(style="display: flex; list-style:none; ")}}
-        <br>
-        {{form.fixsubject_2.label(class='form-label')}} 
-        {{form.fixsubject_2(class='form-control')}}
-        <br>
-        {{form.explain.label(class='form-label')}} 
-        {{form.explain(class='form-control')}}
-        <br>
-        {{form.submit(class='btn btn-primary')}}
-        </form>
-    </div>
+<script type="text/javascript">
+    // 防止跳出重新繳交表單
+    // function init(){
+    //     window.history.replaceState(null, null, window.location.href);
+    // }
 
-<p>{# {{ moment(current_time).format('LLL')}} #}.</p>
-<p>{# {{moment(current_time).fromNow(refresh = True)}} #}</p>
-</main>
+    var box;
+    var a = 0;
+
+    function init() {
+        var btn = document.getElementById("btn");
+
+        btn.addEventListener('click'/*事件名稱*/, submit/*對應的處理函式*/);
+    }
+
+    // 送出表單後跳出提示
+    function submit() { //準備一個事件處理器(對應事件的函式)
+        alert('表單送出成功!');
+        console.log('we get it');
+    }
+    
+
+    window.onload = function () {
+        // box為點擊後被左右滑動的螢幕
+        box = document.getElementById("procontent");
+        // dialog 為被點擊後跳出的說明欄
+        // dialog= document.getElementById("dialog");
+    }
+    // 點擊後procontent往左
+    function prev() {
+        box.scrollBy(-200, 0);  //重點
+    }
+    // 點擊後procontent往右
+    function next() {
+        box.scrollBy(200, 0);
+    }
+    // 點擊後跳出dialog
+    function showDialog(){  
+        dialog.style.display="block";
+    }
+    // // 點擊後關閉dialog
+    function closeDialog(){
+        dialog.style.display = "none";
+    }
+
+    // 都不顯示 幹你娘==，記得把js移到html後面，你馬搞有夠久==
+    // 動態新增進度敘述
+    var content = document.getElementById("procontent");
+    var prolist = document.getElementsByClassName("prolist");
+
+    fetch('/progress')
+        .then(response => response.json())
+        .then(progress => {
+
+            // 在控制台上顯示獲取的資料
+            // console.log(progress);
+            // console.log(progress.length);
+            // console.log(progress[1][1]);
+
+            // 動態新增div
+            for (let i = progress.length-1; i >= 0; i--) {
+                const probox = document.createElement('div');
+                probox.setAttribute('class', 'probox');
+                // probox.setAttribute('onclick', 'showDialog();');
+
+                // 增加dialog
+                // const dialog = document.createElement('div');
+                // dialog.setAttribute('class', 'dialog');
+                // dialog.setAttribute('id', 'dialog');
+                // dialog.innerHTML = 'a';
+
+                // // 增加dialog的x
+                // const close = document.createElement('div');
+                // close.setAttribute('class', 'close');
+                // close.setAttribute('id', 'close');
+                // close.innerHTML = '&times';
+
+                // 新增item欄位
+                const item = document.createElement('p');
+                item.setAttribute('class', 'item');
+
+                // 新增status欄位
+                const status = document.createElement('p');
+                status.setAttribute('class', 'status');
+                
+                // 新增subtimes欄位
+                const subtimes = document.createElement('p');
+                subtimes.setAttribute('class', 'subtimes');
+
+                item.innerHTML = progress[i][0];
+                status.innerHTML = progress[i][4];
+                subtimes.innerHTML = '繳交時間: ' + progress[i][3];
+
+                // 將div新增到指定的div中,把指定內容放入div
+                content.appendChild(probox);
+                probox.appendChild(item);
+                probox.appendChild(status);
+                probox.appendChild(subtimes);
+
+                const divs = document.querySelectorAll('.probox');
+                // console.log(document.querySelectorAll('.probox'));
+                
+                // 為每個被新增的 div 綁定一個點擊事件
+                divs.forEach((div) => {
+                div.addEventListener('click', () => {
+                    // console.log(div.innerHTML);
+                    // 顯示 dialog
+                    showDialog();
+                    // 將被點擊的 div 的內容顯示在 dialog 中
+                    const boxtitle = document.createElement('p');
+                    boxtitle.setAttribute('class', 'boxtitle');
+                    boxtitle.innerHTML = '維修進度' + '<br>' + '<br>';
+
+                    const boxitems =  div.innerHTML;
+                    const dialogContent = document.getElementById('dialog-content');
+                    dialogContent.innerHTML = boxtitle.innerHTML + boxitems;
+                });
+                });
+
+                const closeButton = document.getElementById('close');
+                closeButton.addEventListener('click', () => {
+                    closeDialog();
+                });
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    
+
+</script>
 {% endblock %}
-
